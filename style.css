@@ -1,0 +1,233 @@
+/* Global reset and box-sizing */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base font size for rem units */
+html {
+    font-size: 62.5%;
+}
+
+/* Centering the main container */
+.main_div {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f6f6f6;
+    display: grid;
+    place-items: center;
+}
+
+/* Music container styling */
+.music_container {
+    width: 35rem;
+    height: 60rem;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    box-shadow: 0 1.2rem 3rem 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    text-align: center;
+    position: relative; /* To position droplets absolutely within this container */
+    overflow: hidden; /* To ensure droplets do not overflow the container */
+}
+
+/* Title styling */
+.music_container #title {
+    text-transform: uppercase;
+    color: #171717;
+    margin: 2rem 0 0.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.2rem;
+    word-spacing: 0.5rem;
+}
+
+/* Artist styling */
+.music_container #artist {
+    color: #cccaca;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+}
+
+/* Image container styling */
+.img_container {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    border-radius: 50%;
+    overflow: hidden; /* Ensures the image doesn't overflow the container */
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    border-radius: 50%;
+}
+
+/* Music controls styling */
+.music_controls {
+    width: 250px; /* Increased width to accommodate larger buttons */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.music_controls .fa {
+    color: #111111;
+    font-size: 2.5rem; /* Increased font size */
+    cursor: pointer;
+    filter: drop-shadow(0 1.2rem 3rem 0.5rem rgba(0, 0, 0, 0.4));
+}
+
+/* Common styling for all control buttons */
+.music_controls .control-btn {
+    width: 6rem; /* Increased width */
+    height: 6rem; /* Increased height */
+    border-radius: 50%;
+    background-color: #111;
+    color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem; /* Increased font size */
+}
+
+/* Individual button hover effects */
+.music_controls .control-btn:hover {
+    width: 7rem; /* Increased width on hover */
+    height: 7rem; /* Increased height on hover */
+    background-color: #fff;
+    color: black;
+    box-shadow: 0 1rem 2rem 0.2rem rgba(0, 0, 0, 0.4);
+}
+
+/* Animation for rotating player */
+.anime {
+    animation: rotatePlayer 3s linear infinite;
+}
+
+@keyframes rotatePlayer {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Droplets styling */
+.droplet {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 150, 255, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.7), 0 0 20px rgba(0, 150, 255, 0.5);
+    animation: fall linear infinite;
+    z-index: 10; /* Ensures droplets are above other elements */
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .music_container {
+        width: 80%;
+        height: auto;
+        padding: 2rem;
+    }
+
+    .music_container #title {
+        font-size: 2rem;
+    }
+
+    .music_container #artist {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    .img_container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .music_controls {
+        width: 200px;
+        margin-top: 30px;
+    }
+
+    .music_controls .fa {
+        font-size: 2rem;
+    }
+
+    .music_controls .control-btn {
+        width: 5rem;
+        height: 5rem;
+        font-size: 2rem;
+    }
+
+    .music_controls .control-btn:hover {
+        width: 6rem;
+        height: 6rem;
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .music_container {
+        width: 90%;
+        height: auto;
+        padding: 1.5rem;
+    }
+
+    .music_container #title {
+        font-size: 1.8rem;
+    }
+
+    .music_container #artist {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .img_container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .music_controls {
+        width: 150px;
+        margin-top: 20px;
+    }
+
+    .music_controls .fa {
+        font-size: 1.8rem;
+    }
+
+    .music_controls .control-btn {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.6rem;
+    }
+
+    .music_controls .control-btn:hover {
+        width: 5rem;
+        height: 5rem;
+        font-size: 2rem;
+    }
+}
